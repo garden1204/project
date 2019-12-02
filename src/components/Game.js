@@ -43,7 +43,7 @@ export default class Game extends Component {
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
         const moves = history.map((step, move) => {
-            const desc = move ? 'Go to #' + move : 'Start the Game';
+            const desc = move ? '되돌아 가기 #' + move : 'Start Game!';
             return (
                 <li key={move}>
                     <button onClick={() => { this.jumpTo(move) }}>
@@ -54,9 +54,9 @@ export default class Game extends Component {
         });
         let status;
         if (winner) {
-            status = 'Winner is ' + winner;
+            status = '우승자는! ' + winner;
         } else {
-            status = 'Next Player is ' + (this.state.xIsNext ? 'X' : 'O');
+            status = '다음 플레이어는   ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
 
@@ -68,7 +68,7 @@ export default class Game extends Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <ul>{moves}</ul>
+                    <ul>{moves}</ul>  
                 </div>
 
             </div>
